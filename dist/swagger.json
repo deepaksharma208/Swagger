@@ -1642,7 +1642,7 @@
         "tags": [
           "Shipments"
         ],
-        "description": "Get details of all shipments\n\nBelow are the order status codes used: \n \n  Status Code | Descrition\n  ----- | -----\n  1 | Awb Assigned\n 2 | Label Generated\n 3 | Pickup Scheduled/Generated\n 4 | Pickup Queued\n 5 | Manifest Generated\n 6 | Shipped\n 7 | Delivered\n 8 | Cancelled\n 9 | RTO Initiated\n 10 | RTO Delivered\n 11 | Pending\n 12 | Lost\n 13 | Pickup Error\n 14 | RTO Acknowledged\n 15 | Pickup Rescheduled\n  16 | Cancellation Requested\n 17 | Out For Delivery\n 18 | In Transit\n 19 | Out For Pickup\n 20 | Pickup Exception\n 21 | Undelivered\n 22 | Delayed\n",
+        "description": "Get details of all shipments\n\nBelow are the order status codes used: \n \n  Status Code | Description\n  ----- | -----\n  1 | Awb Assigned\n 2 | Label Generated\n 3 | Pickup Scheduled/Generated\n 4 | Pickup Queued\n 5 | Manifest Generated\n 6 | Shipped\n 7 | Delivered\n 8 | Cancelled\n 9 | RTO Initiated\n 10 | RTO Delivered\n 11 | Pending\n 12 | Lost\n 13 | Pickup Error\n 14 | RTO Acknowledged\n 15 | Pickup Rescheduled\n  16 | Cancellation Requested\n 17 | Out For Delivery\n 18 | In Transit\n 19 | Out For Pickup\n 20 | Pickup Exception\n 21 | Undelivered\n 22 | Delayed\n",
         "summary": "Get shipment Details",
         "operationId": "Get all shipments",
         "security": [
@@ -1968,6 +1968,65 @@
             "description": "Postcode is not serviceable by SHIPROCKET",
             "schema": {
               "$ref": "#/definitions/CheckServiceabilityError"
+            }
+          }
+        }
+      }
+    },
+    "/v1/external/courier/international/serviceability": {
+      "get": {
+        "tags": ["Couriers"],
+        "description": "Check the shipping serviceability options for international orders",
+        "summary": "International Serviceability Check",
+        "operationId": "International Serviceability Check",
+        "produces": ["application/json"],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "weight",
+            "in": "query",
+            "type": "integer",
+            "description": "Approx weight of the shipment",
+            "required": true
+          },
+          {
+            "name": "cod",
+            "in": "query",
+            "type": "boolean",
+            "description": "it must be false, COD orders are not serviceable for international shipping",
+            "required": true
+          },
+          {
+            "name": "delivery_country",
+            "in": "query",
+            "type": "string",
+            "description": "Destination Country Name, Should not be India",
+            "required": true
+          },
+          {
+            "name": "order_id",
+            "in": "query",
+            "type": "integer",
+            "description": "In case the order is already created, pass the shiprocket order id",
+            "required": false
+          },
+          {
+            "name": "pickup_postcode",
+            "in": "query",
+            "type": "integer",
+            "description": "In case you got a different pickup postcode other than that of Primary pickup address",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InternationalServiceabilityResponse"
             }
           }
         }
@@ -6343,6 +6402,80 @@
       "required": [
         "shipment_id"
       ]
+    },
+    "InternationalServiceabilityResponse": {
+      "title": "International Serviceability Response",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "Description": "HTTP response code",
+          "example": 200
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "is_recommendation_enabled": {
+              "type": "boolean",
+              "description": "",
+              "example": true
+            },
+            "recommended_courier_company_id": {
+              "type": "integer",
+              "description": "Recommended Courier Id",
+              "example": 10
+            },
+            "recommended_by": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Courier Priority Selection id",
+                  "example": 4
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Details stating the selected Courier Priority Option in the settings",
+                  "example": "Custom selection"
+                }
+              }
+            },
+            "available_courier_companies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "courier_company_id": {
+                    "type": "integer",
+                    "description": "Courier company id",
+                    "example": 10
+                  },
+                  "courier_name": {
+                    "type": "string",
+                    "description": "Courier Company name",
+                    "example": "ARAMEX"
+                  },
+                  "rate": {
+                    "type": "object",
+                    "properties": {
+                      "rate": {
+                        "type": "string",
+                        "description": "",
+                        "example": "1220.34"
+                      },
+                      "weight": {
+                        "type": "string",
+                        "description": "",
+                        "example": "1.2"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "AwbCreationResponse": {
       "title": "Awb creation response",
