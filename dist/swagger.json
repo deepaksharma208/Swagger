@@ -1764,7 +1764,7 @@
         "/v1/external/courier/assign/awb": {
             "post": {
                 "tags": ["Couriers"],
-                "description": "The ShipRocket API for generating the Air Waybill number for your shipment. You can get a single AWB or bulk AWB’s . It also gives you the option to reassign the AWB number",
+                "description": "The ShipRocket API for generating the Air Waybill number for your shipment. You can get a single AWB. It also gives you the option to reassign the AWB number",
                 "summary": "AWB Creation",
                 "operationId": "Awb Creation",
                 "security": [{
@@ -5830,13 +5830,18 @@
                     "items": {
                         "type": "integer",
                         "format": "int32",
-                        "description": "The shipment id as generated in the shipment section"
+                        "description": "The shipment id as generated in the shipment section. Only one Shipment ID per request is allowed from API"
                     }
                 },
                 "courier_id": {
                     "type": "integer",
                     "format": "int32",
                     "description": "The courier id from above"
+                },
+                "status" : {
+                    "type": "string",
+                    "example": "reassign",
+                    "description": "Use this parameter only to reassign/change the courier. Kindly note that you can reassign only after 24 hours of the previous courier assigned dateTime."
                 }
             },
             "required": ["shipment_id"]
@@ -6548,7 +6553,7 @@
                         },
                         "allow_more": {
                             "type": "string",
-                            "example": "true"
+                            "example": true
                         }
                     }
                 }
@@ -6564,7 +6569,7 @@
                 },
                 "request_pickup": {
                     "type": "boolean",
-                    "example": "true",
+                    "example": true,
                     "description": "Request pickup"
                 },
                 "courier_id": {
