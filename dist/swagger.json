@@ -1798,7 +1798,7 @@
         "/v1/external/courier/generate/pickup": {
             "post": {
                 "tags": ["Couriers"],
-                "description": "The API returns the pickup status along with the estimated pickup time",
+                "description": "The API returns the pickup status along with the estimated pickup time. You have to call the generate Manifest API after the success response of this API.",
                 "summary": "Request for PickUp",
                 "operationId": "Pickup creation",
                 "security": [{
@@ -6037,6 +6037,11 @@
                         "type": "integer",
                         "format": "int32"
                     }
+                },
+                "status": {
+                    "type": "string",
+                    "example": "retry",
+                    "description": "Use this parameter to retry for pickup"
                 }
             },
             "required": ["shipment_id"]
