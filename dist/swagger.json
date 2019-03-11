@@ -1729,8 +1729,8 @@
                 }, {
                     "name": "cod",
                     "in": "query",
-                    "type": "boolean",
-                    "description": "it must be false, COD orders are not serviceable for international shipping",
+                    "type": "integer",
+                    "description": "it must be 0, COD orders are not serviceable for international shipping",
                     "required": true
                 }, {
                     "name": "delivery_country",
