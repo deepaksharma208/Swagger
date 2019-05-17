@@ -1236,6 +1236,42 @@
         }
       }
     },
+    "/v1/external/orders/address/pickup": {
+      "patch": {
+        "tags": [
+          "Create/Update Order"
+        ],
+        "description": "Charge the pickup address of an/multiple order/s.",
+        "summary": "Change pikcup address",
+        "operationId": "ChangePickUpAddress",
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChangePickUpRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Address updated successfully",
+            "schema": {
+              "$ref": "#/definitions/ChangePickUpResponse"
+            }
+          }
+        }
+      }
+    },
     "/v1/external/orders/fulfill": {
       "patch": {
         "tags": [
@@ -1800,7 +1836,6 @@
           "200": {
             "description": "",
             "schema": {
-              "type": "string",
               "$ref": "#/definitions/ShipmentsResponse"
             }
           }
@@ -4632,7 +4667,7 @@
         },
         "message": {
           "type": "string",
-          "example": "Your request to cancel order id order6 has been taken. Since the AWB has already been assigned,  the freight amount against that order is blocked and it will be added back automatically in to your balance in 3-4 working days after the verification by the concerned team."
+          "example": "Your request to cancel order id order has been taken. Since the AWB has already been assigned,  the freight amount against that order is blocked and it will be added back automatically in to your balance in 3-4 working days after the verification by the concerned team."
         }
       }
     },
@@ -7680,6 +7715,39 @@
               "description": "https://s3-ap-southeast-1.amazonaws.com/kr-multichannel/1/manifest/MAN-00212.pdf"
             }
           }
+        }
+      }
+    },
+    "ChangePickUpRequest": {
+      "title": "Request Format for change pickup address API",
+      "type": "object",
+      "properties": {
+        "order_id": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "example": "[123, 456, 789]",
+          "description": "The order id's to change the pickup location."
+        },
+        "pickup_location": {
+          "type": "string",
+          "example": "Primary",
+          "description": "New pickup location name for the given orders"
+        }
+      },
+      "required": [
+        "order_id",
+        "pickup_location"
+      ]
+    },
+    "ChangePickUpResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "error/ success message",
+          "example": "Pickup location Updated"
         }
       }
     }
