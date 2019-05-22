@@ -4643,7 +4643,7 @@
     "CancelOrdersRequest": {
       "title": "Cancel orders request",
       "type": "object",
-      "description": "Mentions the ids of the orders which are to be cancelled. If there are multiple orders then you can cancel them by just entering them in multiple lines",
+      "description": "Mentions the order ids of the orders which are to be cancelled. If there are multiple orders then you can cancel them by just entering them in multiple lines",
       "properties": {
         "ids": {
           "type": "array",
