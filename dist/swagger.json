@@ -2529,7 +2529,7 @@
         "/v1/external/courier/track/awbs": {
             "post": {
                 "tags": [
-                    "Couriers"
+                    "Tracking"
                 ],
                 "description": "Get tracking data for multiple awbs",
                 "summary": "Get tracking data for multiple awbs upto 50 awbs at once",
