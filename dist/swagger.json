@@ -5434,17 +5434,17 @@
                             },
                             "selling_price": {
                                 "type": "integer",
-                                "description": "required",
+                                "description": "required, tax is inclusive in this amount",
                                 "example": "200"
                             },
                             "discount": {
                                 "type": "integer",
-                                "description": "",
+                                "description": "Discount Value in Rs",
                                 "example": ""
                             },
                             "tax": {
                                 "type": "integer",
-                                "description": "",
+                                "description": "Tax Value in %",
                                 "example": ""
                             },
                             "hsn": {
