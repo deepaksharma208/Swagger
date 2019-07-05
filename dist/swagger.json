@@ -7368,6 +7368,16 @@
                     "example": true,
                     "description": "Request pickup"
                 },
+                "print_label": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "Use `false` if you don't want to print the label, default value is `true`"
+                },
+                "generate_manifest": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "Use `false` if you don't want to print the label, default value is `true`"
+                },
                 "courier_id": {
                     "type": "integer",
                     "example": "16",
@@ -7379,7 +7389,7 @@
                     "example": "M/S Lal Enterprises"
                 },
                 "order_id": {
-                    "type": "integer",
+                    "type": "string",
                     "example": "Test Order",
                     "description": "Order Number"
                 },
