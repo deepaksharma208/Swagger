@@ -2609,6 +2609,67 @@
           }
         }
       }
+    },
+    "/v1/external/orders/processing/return": {
+      "get": {
+        "tags": [
+          "Return Orders"
+        ],
+        "description": "Get Return Orders",
+        "summary": "Get Return Orders",
+        "operationId": "getReturnOrders",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "Page number of data to display"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of orders to get per request"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "To date"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "From date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/GetOrdersResponse"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
