@@ -544,14 +544,15 @@
             "name": "pickup_location",
             "in": "formData",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "length should be max 8 characters"
           },
           {
             "name": "name",
             "in": "formData",
             "required": true,
             "type": "string",
-            "description": "length 8 characters"
+            "description": "should be a valid string"
           },
           {
             "name": "email",
