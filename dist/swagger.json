@@ -5914,782 +5914,156 @@
           "items": {
             "type": "object",
             "properties": {
+              "is_recommendation_enabled": {
+                "type": "boolean",
+                "description": "",
+                "example": true
+              },
+              "recommended_by": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "ID of the recommendation type",
+                    "example": 4
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Recommendation Name selected in the settings",
+                    "example": "Custom (Sorted on courier priorities)"
+                  }
+                },
+                "description": "Recommendation selected in the settings"
+              },
+              "child_courier_id": {
+                "type": "integer",
+                "description": "Courier ID if OWN KEY is enabled for couriers",
+                "example": ""
+              },
+              "recommended_courier_company_id": {
+                "type": "integer",
+                "description": "Recommended Courier ID according to the settings",
+                "example": 12
+              },
+              "shiprocket_recommended_courier_id": {
+                "type": "integer",
+                "description": "Recommeded Courier ID by Shiprocket",
+                "example": 41
+              },
               "available_courier_companies": {
-                "type": "object",
-                "properties": {
-                  "air": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "cod": {
-                          "type": "integer",
-                          "example": 1
-                        },
-                        "courier_name": {
-                          "type": "string",
-                          "example": "DOTZOT"
-                        },
-                        "estimated_delivery_days": {
-                          "type": "integer",
-                          "example": 2.07
-                        },
-                        "rate": {
-                          "type": "integer",
-                          "example": 109
-                        }
-                      }
-                    }
-                  },
-                  "surface": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "cod": {
-                          "type": "integer",
-                          "example": 1
-                        },
-                        "courier_name": {
-                          "type": "string",
-                          "example": "DOTZOT"
-                        },
-                        "estimated_delivery_days": {
-                          "type": "integer",
-                          "example": 2.07
-                        },
-                        "rate": {
-                          "type": "integer",
-                          "example": 109
-                        }
-                      }
-                    }
-                  },
-                  "zone": {
-                    "type": "string",
-                    "example": "z_a"
-                  }
-                }
-              },
-              "delivery": {
-                "type": "object",
-                "properties": {
-                  "city": {
-                    "type": "string",
-                    "example": "New Delhi"
-                  },
-                  "postcode": {
-                    "type": "integer",
-                    "example": 110030
-                  },
-                  "state": {
-                    "type": "string",
-                    "example": "DELHI"
-                  }
-                }
-              },
-              "pickup": {
-                "type": "object",
-                "properties": {
-                  "city": {
-                    "type": "string",
-                    "example": "New Delhi"
-                  },
-                  "postcode": {
-                    "type": "integer",
-                    "example": 110062
-                  },
-                  "state": {
-                    "type": "string",
-                    "example": "DELHI"
-                  }
-                }
-              },
-              "rates": {
-                "type": "object",
-                "properties": {
-                  "Lite": {
-                    "type": "object",
-                    "properties": {
-                      "air": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "surface": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "Basic": {
-                    "type": "object",
-                    "properties": {
-                      "air": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "surface": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "Advanced": {
-                    "type": "object",
-                    "properties": {
-                      "air": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "surface": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "Pro": {
-                    "type": "object",
-                    "properties": {
-                      "air": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "surface": {
-                        "type": "object",
-                        "properties": {
-                          "cod_charges": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 57
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 35
-                              }
-                            }
-                          },
-                          "zone_a": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 28
-                              }
-                            }
-                          },
-                          "zone_b": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 48
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 40
-                              }
-                            }
-                          },
-                          "zone_c": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 64
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 47
-                              }
-                            }
-                          },
-                          "zone_d": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 74
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          },
-                          "zone_e": {
-                            "type": "object",
-                            "properties": {
-                              "max": {
-                                "type": "integer",
-                                "example": 90
-                              },
-                              "min": {
-                                "type": "integer",
-                                "example": 48
-                              }
-                            }
-                          }
-                        }
-                      }
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "base_courier_id": {
+                      "type": "integer",
+                      "description": "Base courier ID",
+                      "example": ""
+                    },
+                    "courier_type": {
+                      "type": "string",
+                      "description": "Domestic Or International",
+                      "example": "0"
+                    },
+                    "courier_company_id": {
+                      "type": "integer",
+                      "description": "Courier ID",
+                      "example": 12
+                    },
+                    "courier_name": {
+                      "type": "string",
+                      "description": "Name of the Courier",
+                      "example": "FedEx Surface"
+                    },
+                    "is_rto_address_available": {
+                      "type": "boolean",
+                      "description": "If the same courier available for RTO orders?",
+                      "example": false
+                    },
+                    "rate": {
+                      "type": "integer",
+                      "description": "Shipping Charges",
+                      "example": 162
+                    },
+                    "is_surface": {
+                      "type": "boolean",
+                      "description": "true If Courier is Shipping in Surface mode",
+                      "example": true
+                    },
+                    "rating": {
+                      "type": "number",
+                      "description": "Courier Ratings out of 5",
+                      "example": 4.2
+                    },
+                    "estimated_delivery_days": {
+                      "type": "integer",
+                      "description": "Estimated delivery in Days",
+                      "example": null
+                    },
+                    "rto_performance": {
+                      "type": "integer",
+                      "description": "Courier Performance for RTO orders, out of 100",
+                      "example": null
+                    },
+                    "pickup_performance": {
+                      "type": "integer",
+                      "description": "Courier Performance in Pickup of Orders",
+                      "example": 99
+                    },
+                    "delivery_performance": {
+                      "type": "integer",
+                      "description": "Courier Performance in Delivery of Orders",
+                      "example": ""
+                    },
+                    "cod": {
+                      "type": "integer",
+                      "description": "1 if Courier provides Cash On Delivery service",
+                      "example": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "",
+                      "example": ""
+                    },
+                    "mode": {
+                      "type": "integer",
+                      "description": "Surface or Air, 0 for surface, 1 for Air",
+                      "example": 0
+                    },
+                    "min_weight": {
+                      "type": "integer",
+                      "description": "Min Weight of Shipment Allowed by Courier",
+                      "example": 10
+                    },
+                    "is_international": {
+                      "type": "integer",
+                      "description": "1 if the courier provides international shipping services",
+                      "example": 0
+                    },
+                    "entry_tax": {
+                      "type": "integer",
+                      "description": "Entry tax charged by courier",
+                      "example": 0
+                    },
+                    "pickup_availability": {
+                      "type": "integer",
+                      "description": "1 if the courier is available for pickup",
+                      "example": 1
+                    },
+                    "seconds_left_for_pickup": {
+                      "type": "integer",
+                      "description": "No of seconds left for the same day pickup",
+                      "example": 16982
+                    },
+                    "etd_hours": {
+                      "type": "integer",
+                      "description": "No of hours for estimated delivery",
+                      "example": 88
+                    },
+                    "etd": {
+                      "type": "string",
+                      "description": "Estimated delivery date",
+                      "example": "Aug 5, 2019"
                     }
                   }
                 }
