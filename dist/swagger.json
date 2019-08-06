@@ -5647,6 +5647,10 @@
                     "type": "integer",
                     "description": "",
                     "example": 2.4
+                },
+                "ewaybill_no": {
+                    "type": "integer",
+                    "description": "Eway bill no. Required for order amount > ₹50,000. Max length 12 digits"
                 }
             }
         },
