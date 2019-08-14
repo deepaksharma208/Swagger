@@ -2022,9 +2022,10 @@
         "/v1/external/courier/serviceability/": {
             "get": {
                 "tags": [
-                    "Couriers"
+                    "Couriers",
+                    "Return Orders"
                 ],
-                "description": "Check for the list of available courier companies between pickup & delivery postcodes, along with the estimated delivery time in days and shipping charges. Here is the list of Courier Companies along with their id's:  \n\n Courier Name | Courier Id\n ----- | ----- \n BLUEDART | 1\n FEDEX | 2\n FEDEX PACKAGING* | 7\n DHL PACKET INTERNATIONAL* | 8\n DELHIVERY | 10\n FEDEX SURFACE | 12\n ECOMEXP | 14\nDOTZOT | 16\n XPRESSBEES | 33\n ARAMEX INTERNATIONAL* | 35 \n FEDEX YOUR PACK* | 36\n DHL PACKET PLUS* | 37\n DHL PARCEL DIRECT* | 38\n DELHIVERY SURFACE | 39\n GATI SURFACE | 40\n FEDEX FLAT RATE | 41\n FEDEX SURFACE LIGHT | 42\n DELHIVERY SURFACE STANDAR | 43\n DELHIVERY SURFACE LITE | 44\n ECOMEXP REVERSE** | 45\n SHADOW FAX REVERSE** | 46\n ECOM INTERNATIONAL* | 47\n EKART | 48\n SHADOWFAX | 49\n WOW EXPRESS | 50\n XPRESSBEES SURFACE | 51\n RAPID DELIVERY | 52\n GATI SG | 53\n EKART SURFACE | 54\n BLUEDART DART PLUS | 55\n DHL EXPRESS | 56\n PROFESSIONAL | 57\n SHADOWFAX FORWARD | 58\n VULCAN | 59\n ECOM EXPRESS ROI | 60\n *marked ouriers are for International Shipments\n **  marked Couriers are for return Shipments",
+                "description": "Check for the list of available courier companies between pickup & delivery postcodes, along with the estimated delivery time in days and shipping charges.\n \n ***For Return shipments send `is_return` = `1` and `cod`=`0`*** \n \n Here is the list of Courier Companies along with their id's:  \n\n Courier Name | Courier Id\n ----- | ----- \n BLUEDART | 1\n FEDEX | 2\n FEDEX PACKAGING* | 7\n DHL PACKET INTERNATIONAL* | 8\n DELHIVERY | 10\n FEDEX SURFACE | 12\n ECOMEXP | 14\nDOTZOT | 16\n XPRESSBEES | 33\n ARAMEX INTERNATIONAL* | 35 \n FEDEX YOUR PACK* | 36\n DHL PACKET PLUS* | 37\n DHL PARCEL DIRECT* | 38\n DELHIVERY SURFACE | 39\n GATI SURFACE | 40\n FEDEX FLAT RATE | 41\n FEDEX SURFACE LIGHT | 42\n DELHIVERY SURFACE STANDAR | 43\n DELHIVERY SURFACE LITE | 44\n ECOMEXP REVERSE** | 45\n SHADOW FAX REVERSE** | 46\n ECOM INTERNATIONAL* | 47\n EKART | 48\n SHADOWFAX | 49\n WOW EXPRESS | 50\n XPRESSBEES SURFACE | 51\n RAPID DELIVERY | 52\n GATI SG | 53\n EKART SURFACE | 54\n BLUEDART DART PLUS | 55\n DHL EXPRESS | 56\n PROFESSIONAL | 57\n SHADOWFAX FORWARD | 58\n VULCAN | 59\n ECOM EXPRESS ROI | 60\n *marked ouriers are for International Shipments\n **  marked Couriers are for return Shipments",
                 "summary": "Check Serviceability",
                 "operationId": "Check serviceability",
                 "security": [
@@ -2241,9 +2242,10 @@
         "/v1/external/courier/generate/pickup": {
             "post": {
                 "tags": [
-                    "Couriers"
+                    "Couriers",
+                    "Return Orders"
                 ],
-                "description": "The API returns the pickup status along with the estimated pickup time. You have to call the generate Manifest API after the success response of this API.",
+                "description": "The API returns the pickup status along with the estimated pickup time. You have to call the generate Manifest API after the success response of this API. \n \n ***To send a retry request for pickup, send `status` = `retry`.*** ",
                 "summary": "Request for PickUp",
                 "operationId": "Pickup creation",
                 "security": [
@@ -6337,7 +6339,6 @@
                 },
                 "status": {
                     "type": "string",
-                    "example": "retry",
                     "description": "Use this parameter to retry for pickup"
                 }
             },
