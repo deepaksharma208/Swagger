@@ -2200,9 +2200,10 @@
         "/v1/external/courier/assign/awb": {
             "post": {
                 "tags": [
-                    "Couriers"
+                    "Couriers",
+                    "Return Orders"
                 ],
-                "description": "The ShipRocket API for generating the Air Waybill number for your shipment. You can get a single AWB. It also gives you the option to reassign the AWB number",
+                "description": "The ShipRocket API for generating the Air Waybill number for your shipment. You can get a single AWB. \n \n ***For return orders send `is_return` = `1`.***\n \n ***To reassign the AWB (to a different courier), send `status` = `reasign` and (optional) pass the `courier_id` param.***",
                 "summary": "AWB Creation",
                 "operationId": "Awb Creation",
                 "security": [
@@ -2242,8 +2243,7 @@
         "/v1/external/courier/generate/pickup": {
             "post": {
                 "tags": [
-                    "Couriers",
-                    "Return Orders"
+                    "Couriers"
                 ],
                 "description": "The API returns the pickup status along with the estimated pickup time. You have to call the generate Manifest API after the success response of this API. \n \n ***To send a retry request for pickup, send `status` = `retry`.*** ",
                 "summary": "Request for PickUp",
@@ -6132,7 +6132,6 @@
                 },
                 "status": {
                     "type": "string",
-                    "example": "reassign",
                     "description": "Use this parameter only to reassign/change the courier. Kindly note that you can reassign only after 24 hours of the previous courier assigned dateTime."
                 }
             },
