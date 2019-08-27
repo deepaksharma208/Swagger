@@ -1116,43 +1116,6 @@
                 }
             }
         },
-        "/v1/external/orders/status": {
-            "get": {
-                "tags": [
-                    "Orders"
-                ],
-                "description": "This API runs a status sync which pulls out the changes in order status and syncs them in the panel",
-                "summary": "Sync status",
-                "operationId": "Sync status",
-                "produces": [
-                    "application/json"
-                ],
-                "security": [
-                    {
-                        "Bearer": []
-                    }
-                ],
-                "parameters": [],
-                "responses": {
-                    "204": {
-                        "description": "",
-                        "schema": {}
-                    },
-                    "401": {
-                        "description": "unauthorized access",
-                        "schema": {
-                            "$ref": "#/definitions/export401"
-                        }
-                    },
-                    "405": {
-                        "description": "method not allowed",
-                        "schema": {
-                            "$ref": "#/definitions/405Error"
-                        }
-                    }
-                }
-            }
-        },
         "/v1/external/orders/create/adhoc": {
             "post": {
                 "tags": [
@@ -1734,12 +1697,12 @@
                 }
             }
         },
-        "/v1/external/orders/sample": {
+        "/v1/external/orders/sample/{type}": {
             "get": {
                 "tags": [
                     "Orders"
                 ],
-                "description": "Get sample format for Orders Import excel file",
+                "description": "Get sample format for Orders Import excel file. \n \n Available values for `type` param are **quick** -> for custom orders , **linked** -> for order linked to a channel, **quickint** -> for custom international order, **linkedint** -> for international order linked to a channel",
                 "summary": "Get sample format for Orders Import",
                 "operationId": "Bulk sample1",
                 "produces": [
@@ -1750,7 +1713,15 @@
                         "Bearer": []
                     }
                 ],
-                "parameters": [],
+                "parameters": [
+                  {
+                    "name": "type",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
